@@ -1,0 +1,106 @@
+@import 'mixins';
+@import 'fonts';
+@import 'colors';
+@import 'header';
+
+html, body {
+  height: 100%;
+  margin: 0; padding: 0;  /* to avoid scrollbars */
+  font-family: $ubuntu;
+}
+
+.PageWrapper {
+  display: flex;  /* use the flex model */
+  flex-direction: column;  /* learn more: http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.PageContent{
+	flex: 1;
+}
+
+img{
+  max-width: 100%;
+}
+
+.container{
+	margin: 0 auto;
+	padding: 0 15px;
+	width: 100%;
+
+	@include MQ(S){
+		max-width: 750px;
+	}
+
+	@include MQ(M){
+		max-width: 970px;
+	}
+
+	@include MQ(L){
+		max-width: 1280px;
+	}
+}
+
+.line{
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+
+  &::before{
+    @include center(y);
+    background-color: $turquoise;
+    content: "";
+    display: block;
+    height: 1px;
+    left: -10%;
+    position: absolute;
+    width: 120%;
+  }
+
+}
+
+.Banner{
+  background: url(../img/banner.jpg) no-repeat left center;
+  background-size: cover;
+
+  @include MQ(S){
+    background-position: 30% center;
+  }
+
+  &__logo{
+    margin-bottom: 10%;
+    margin-top: 10%;
+
+    @include MQ(S){
+      margin-left: 3.5%;
+      width: 480px;
+    }
+  }
+
+  h1{
+    color: white;
+    font-size: 26px;
+    font-size: 5vw;
+    font-weight: 300;
+    letter-spacing: 6px;
+    line-height: 1.4;
+    margin: 0 auto;
+    text-transform: uppercase;
+    width: 90%;
+
+    b{
+      font-weight: 700;
+    }
+
+    @include MQ(S){
+      font-size: 36px;
+      letter-spacing: 12px;
+      margin: 0 0 0 5%;
+    }
+
+    @include MQ(M){
+      font-size: 44px;
+    }
+  }
+}

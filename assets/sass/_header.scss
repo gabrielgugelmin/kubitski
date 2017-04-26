@@ -1,0 +1,217 @@
+.Header{
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  &.is-scrolling{
+    .Header__logo{
+      @include transform(translateY(0));
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__logo{
+    @include transition(all .5s ease);
+    @include transform(translateY(-50px));
+
+    display: inline-block;
+    left: 30px;
+    margin-top: 24px;
+    opacity: 0;
+    visibility: visible;
+    width: 140px;
+
+    svg{
+      height: auto;
+      width: 100%;
+    }
+  }
+}
+
+.Menu{
+  @include transform(translateX(100%));
+  @include transition(all, .6s, ease);
+  
+  background: rgba(black, .8);
+  height: 100%;
+  right: 0;
+  opacity: 0;
+  overflow: auto;
+  position: fixed;
+  text-align: center;
+  top: 0;  
+  visibility: hidden;
+  width: calc(100% - 70px);
+  z-index: 1;
+
+  @include MQ(S){
+    max-width: 700px;
+    width: 80%;
+  }
+
+  // MODIFICADORES
+  &.is-open{
+    @include transform(translateX(0));
+
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__nav{
+    list-style: none;
+    margin: 0;
+    padding:  100px 0 15px;
+
+    @include MQ(M){
+      position: absolute;
+      padding: 0;
+      margin: 0 auto;
+      width: 90%;
+      @include center;
+    }
+
+    a{
+      @include transition(color .3s ease);
+
+      color: white;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 2.6px;
+      line-height: 1.4;
+      padding: 10px 0 10px 15px;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &::before{
+        @include center(y);
+        @include transition(all .3s ease-in-out);
+        
+        background: $turquoise;
+        content: "";
+        height: 1px;
+        left: -10%;
+        opacity: 0;
+        position: absolute;
+        visibility: hidden;
+        width: 0;
+      }
+
+      &:hover{
+        &::before{
+          left: 0;
+          opacity: 1;
+          visibility: visible;
+          width: 75%;
+        }
+      }
+
+      @include MQ(S){
+        font-size: 26px;
+      }
+    }
+  }
+}
+
+// MENU TRIGGER
+
+.MenuTrigger{
+	@include transition(all, .3s, linear);
+
+  border: 1px solid rgba($turquoise, .3);
+  display: inline-block;
+  height: 46px;
+  position: absolute;
+  right: 25px;
+  text-decoration: none;
+  top: 26px;
+  width: 56px;
+  z-index: 3;
+
+  small{
+    border: 1px solid rgba($turquoise, .3);
+    color: $turquoise;
+    display: none;
+    font-size: 18px;
+    height: 46px;
+    line-height: 46px;
+    position: absolute;
+    right: 58px;
+    text-align: center;
+    top: -1px;
+    width: 96px;
+
+    &::before{
+      content: "MENU";
+      position: relative;
+      display: inline-block;
+    }
+
+    @include MQ(M){
+      display: block;
+    }
+  }
+
+	span{
+		@include center;
+		@include transition(all, .2s, linear);
+
+		background-color: $turquoise;
+		display: block;
+		height: 4px;
+		position: relative;
+		width: 26px;
+
+		&::after, &::before{
+			@include transition(all, .3s, linear);
+			@include transform(rotate(0));
+
+			background-color: $turquoise;
+			content: "";
+			display: block;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+		}
+
+		&::after{
+			bottom: -10px;
+		}
+
+		&::before{
+			top: -10px;			
+    }
+	}
+
+	&.is-open{
+    small{
+      &::before{
+        content: "FECHAR";
+      }
+    }
+    
+		span{
+			background-color: transparent !important;
+
+			&::before, &::after{
+				background-color: $turquoise;
+			}
+
+			&:before{
+				@include transform(rotate(45deg));
+
+				top: 0  !important;
+			}
+
+			&:after{
+				@include transform(rotate(-45deg));
+
+				bottom: 0 !important;
+			}
+		}
+	}
+}

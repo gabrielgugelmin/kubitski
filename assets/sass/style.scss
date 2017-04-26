@@ -24,106 +24,9 @@ img{
   max-width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6{
-  color: white;
-  font-weight: 300;
-  letter-spacing: 6px;
-  line-height: 1.4;
-  text-transform: uppercase;
-
-  b{
-    font-weight: bold;
-  }
-}
-
-h1,
-h2{
-  font-size: 28px;
-  font-size: 6vw;
-
-  @include MQ(S){
-    font-size: 36px;
-    letter-spacing: 12px;
-  }
-
-  @include MQ(M){
-    font-size: 43px;
-  }
-}
-
-video { 
-  @include center;
-
-  min-height: 100%;
-  min-width: 100%;
-  position: absolute;
-  z-index: -100;
-}
-
-.Message{
-  background: rgba(black, .3);
-  border: 1px solid $turquoise;
-  max-width: 700px;
-  padding: 15px;
-  position: relative;
-
-  &::before,
-  &::after{
-    position: absolute;
-    content: "";
-    background: white;
-    
-  }
-
-  &::before{
-    height: 4px;
-    width: 30px;
-    left: -15px;
-    top: -2px;
-  }
-
-  &::after{
-    height: 30px;
-    width: 4px;
-    top: -15px;
-    left: -2px;
-  }
-
-  p{
-    color: white;
-    font-size: 16px;
-    line-height: 1.4;
-    letter-spacing: 0.4px;
-  }
-
-  @include MQ(M){
-    padding: 30px 35px;
-
-    p{
-      font-size: 18px;
-      line-height: 29px;
-    }
-  }
-
-  &--borderless{
-    @extend .Message;
-    
-    background: transparent;
-    border: 0;
-
-
-    &::after,
-    &::before{
-      display: none;
-    }
-  }
-}
-
 .container{
 	margin: 0 auto;
 	padding: 0 15px;
-  height: 100%;
-  position: relative;
 	width: 100%;
 
 	@include MQ(S){
@@ -155,15 +58,6 @@ video {
     width: 120%;
   }
 
-  &--large{
-    @extend .line;
-
-    &::before{
-
-      width: 170%;
-    }
-  }
-
 }
 
 .Banner{
@@ -185,7 +79,14 @@ video {
   }
 
   h1{
+    color: white;
+    font-size: 26px;
+    font-size: 5vw;
+    font-weight: 300;
+    letter-spacing: 6px;
+    line-height: 1.4;
     margin: 0 auto;
+    text-transform: uppercase;
     width: 90%;
 
     b{
@@ -193,134 +94,13 @@ video {
     }
 
     @include MQ(S){
+      font-size: 36px;
+      letter-spacing: 12px;
       margin: 0 0 0 5%;
-    }   
-  }
-}
-
-.Believe{
-	height: 500px;
-  position: relative;
-  overflow: hidden;
-  padding: 15px;
-
-  .container{
-    z-index: 1;
-  }
-
-  @include MQ(S){
-    &__content{
-      float: right;
-      max-width: 700px;
-      position: absolute;
-      right: 0;
-      bottom: 70px;
-    }
-  }
-
-  @include MQ(M){
-    height: 860px;
-  }
-}
-
-.Simple{
-  background: url(../img/sorriso.jpg) no-repeat center center;
-  background-size: cover;
-  padding-top: 15%;
-  height: 500px;
-
-  h2{
-    margin: 0;
-    font-weight: 700;
-  }
-
-  @include MQ(M){
-    height: 700px;
-  }
-
-  @include MQ(L){
-    height: 860px;
-  }
-
-  .Message--borderless{
-    position: absolute;
-    bottom: 80px;
-    right: 0;
-  }
-}
-
-.Video{
-  height: 500px;
-  position: relative;
-
-  @include MQ(M){
-    height: 860px;
-  }
-}
-
-.About{
-  background: url(../img/foto-fundo.jpg) no-repeat center center;
-  background-size: cover;
-  padding: 160px 0;
-}
-
-.Info{
-  &__box{
-    font-size: 14px;
-    letter-spacing: 0.2px;
-    line-height: 1.7;
-    position: relative;
-
-    h2{
-      display: inline-block;
-      font-size: 26px;
-      font-weight: 700; 
-      left: 15%;
-      margin: 0;
-      position: absolute;
-      top: -90px;
-      z-index: 1;
-
-      @include MQ(S){
-        text-align: left;
-      }
     }
 
-    p{
-      margin: 0;
-    }
-
-    @include MQ(S){
-      font-size: 18px;
-      height: 340px;
-      width: 690px;
-
-    .Info__content{
-        @include center;
-        position: absolute;
-        width: 400px;
-        
-      }
-    }
-  }
-
-  &--green,
-  &--blue{
-    @extend .Info__box;
-  }
-
-  &--green{
-    h2{
-      color: $downriver;
-    }
-
-    .Info__box{
-      background-color: $turquoise;
-      padding: 40px 15px;
-
-      p{
-        color: $downriver;
-      }
+    @include MQ(M){
+      font-size: 44px;
     }
   }
 }

@@ -28,6 +28,10 @@
       height: auto;
       width: 100%;
     }
+
+    @include MQ(M){
+      width: 260px;
+    }
   }
 }
 

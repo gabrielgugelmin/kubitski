@@ -46,7 +46,7 @@ h2{
     letter-spacing: 12px;
   }
 
-  @include MQ(M){
+  @include MQ(XL){
     font-size: 43px;
   }
 }
@@ -122,7 +122,6 @@ video {
 .container{
 	margin: 0 auto;
 	padding: 0 15px;
-  height: 100%;
   position: relative;
 	width: 100%;
 
@@ -187,6 +186,10 @@ video {
       margin-left: 3.5%;
       width: 480px;
     }
+  }
+
+  .container{
+    height: 100%;
   }
 
   h1{
@@ -257,6 +260,10 @@ video {
     height: 860px;
   }
 
+  .container{
+    height: 100%;
+  }
+
   .Message--borderless{
     position: absolute;
     bottom: 80px;
@@ -275,15 +282,12 @@ video {
 
 .About{
   @include clearfix;
-  //background-attachment: fixed;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
   background: url(../img/foto-fundo.jpg) no-repeat center center;
   padding: 120px 0;
   position: relative;
-
-  //height: 1800px;
 
   &__img{
     background-image: url(../img/foto-casal.jpg);
@@ -319,6 +323,14 @@ video {
     position: relative;
     top: 18px;
     z-index: 1;
+
+    @include MQ(M){
+      font-size: 36px;
+    }
+
+    @include MQ(XL){
+      font-size: 44px;
+    }
   }
 
   @include MQ(S){
@@ -391,5 +403,53 @@ video {
 }
 
 .Doctor{
+  @include clearfix;
   background: $woodsmoke url(../img/doutor.jpg) no-repeat center bottom;
+  padding: 120px 0;
+
+  .Message{
+    background: rgba(black, .56);
+  }
+
+  .container{
+    height: 100%;
+  }
+
+  h2{
+    line-height: 65px;
+  }
+
+  &__message{
+    float: right;
+    max-width: 510px;
+    margin-top: 100px;
+
+    @include MQ(L){
+      margin-top: 190px;
+    }
+
+    > img{
+      display: block;
+      margin: 0 auto 30px;
+    }
+  }
+
+  .Quote{
+    display: block;
+    font-style: italic;
+    color: #737374;
+    text-transform: uppercase;
+    line-height: 1.7;
+    font-weight: 500;
+    letter-spacing: 5px;
+
+    small{
+      font-weight: 300;
+      color: white;
+      display: block;
+      font-style: normal;
+      text-transform: none;
+      font-size: 17px;
+    }
+  }
 }

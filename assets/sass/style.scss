@@ -159,8 +159,11 @@ video {
     @extend .line;
 
     &::before{
+      width: 150%;
 
-      width: 170%;
+      @include MQ(M){
+        width: 170%;
+      }
     }
   }
 
@@ -169,14 +172,16 @@ video {
 .Banner{
   background: url(../img/banner.jpg) no-repeat left center;
   background-size: cover;
+  position: relative;
 
   @include MQ(S){
     background-position: 30% center;
   }
 
   &__logo{
-    margin-bottom: 10%;
-    margin-top: 10%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    max-width: 60%;
 
     @include MQ(S){
       margin-left: 3.5%;
@@ -185,7 +190,10 @@ video {
   }
 
   h1{
+    @include center(y);
+    left: 10%;
     margin: 0 auto;
+    position: absolute;
     width: 90%;
 
     b{
@@ -193,6 +201,10 @@ video {
     }
 
     @include MQ(S){
+      position: relative;
+      @include transform(none);
+      left: inherit;
+      top: inherit;
       margin: 0 0 0 5%;
     }   
   }
@@ -224,10 +236,13 @@ video {
 }
 
 .Simple{
-  background: url(../img/sorriso.jpg) no-repeat center center;
+  background-attachment: fixed;
+  background-image: url(../img/sorriso.jpg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 15%;
   height: 500px;
+  padding-top: 15%;
 
   h2{
     margin: 0;
@@ -259,54 +274,83 @@ video {
 }
 
 .About{
-  background: url(../img/foto-fundo.jpg) no-repeat center center;
+  @include clearfix;
+  //background-attachment: fixed;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
   background-size: cover;
-  padding: 160px 0;
+  background: url(../img/foto-fundo.jpg) no-repeat center center;
+  padding: 120px 0;
+  position: relative;
+
+  //height: 1800px;
+
+  &__img{
+    background-image: url(../img/foto-casal.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 400px;
+    left: 0;
+    position: absolute;
+    top: 20%;
+    width: 100%;
+
+    @include MQ(M){
+      height: 600px;
+    }
+  }
 }
 
 .Info{
+  display: inline-block;
+  max-width: 640px;
+  padding: 40px 15px;
+  width: 90%;
+  z-index: 2;
+
+  h2{
+    display: block;
+    font-size: 26px;
+    font-weight: 700; 
+    margin: 0 auto;
+    max-width: 400px;
+    position: relative;
+    top: 18px;
+    z-index: 1;
+  }
+
+  @include MQ(S){
+    text-align: left;
+  }
+
   &__box{
     font-size: 14px;
     letter-spacing: 0.2px;
     line-height: 1.7;
+    height: 290px;
     position: relative;
 
-    h2{
-      display: inline-block;
-      font-size: 26px;
-      font-weight: 700; 
-      left: 15%;
-      margin: 0;
-      position: absolute;
-      top: -90px;
-      z-index: 1;
-
-      @include MQ(S){
-        text-align: left;
-      }
-    }
-
     p{
+      @include center;
+
+      font-size: 16px;
+      font-weight: 300;
       margin: 0;
-    }
+      max-width: 80%;
+      position: absolute;
+      width: 400px;
 
-    @include MQ(S){
-      font-size: 18px;
-      height: 340px;
-      width: 690px;
-
-    .Info__content{
-        @include center;
-        position: absolute;
-        width: 400px;
-        
+      @include MQ(M){
+        font-size: 18px;
       }
     }
   }
 
   &--green,
   &--blue{
-    @extend .Info__box;
+    @extend .Info;
   }
 
   &--green{
@@ -316,11 +360,36 @@ video {
 
     .Info__box{
       background-color: $turquoise;
-      padding: 40px 15px;
 
       p{
         color: $downriver;
       }
     }
+
+    @include MQ(S){
+      float: left;
+    }
   }
+
+  &--blue{
+    h2{
+      color: white;
+    }
+
+    .Info__box{
+      background-color: $curious-blue;
+
+      p{
+        color: white;
+      }
+    }
+
+    @include MQ(S){
+      float: right;
+    }
+  }
+}
+
+.Doctor{
+  background: $woodsmoke url(../img/doutor.jpg) no-repeat center bottom;
 }

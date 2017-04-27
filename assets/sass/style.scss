@@ -72,7 +72,6 @@ video {
     position: absolute;
     content: "";
     background: white;
-    
   }
 
   &::before{
@@ -92,8 +91,9 @@ video {
   p{
     color: white;
     font-size: 16px;
-    line-height: 1.4;
+    font-weight: 300;
     letter-spacing: 0.4px;
+    line-height: 1.4;
   }
 
   @include MQ(M){
@@ -166,6 +166,14 @@ video {
     }
   }
 
+}
+
+.break{
+  display: none;
+
+  @include MQ(M){
+    display: block;
+  }
 }
 
 .Banner{
@@ -404,52 +412,289 @@ video {
 
 .Doctor{
   @include clearfix;
-  background: $woodsmoke url(../img/doutor.jpg) no-repeat center bottom;
-  padding: 120px 0;
+  //background: $woodsmoke url(../img/doutor.jpg) no-repeat center bottom;
+  background: $woodsmoke;
+  padding: 60px 0;
+
+  @include MQ(M){
+    background: $woodsmoke url(../img/doutor.jpg) no-repeat center top;
+    padding: 120px 0;
+  }
 
   .Message{
     background: rgba(black, .56);
-  }
+    padding: 25px;
 
-  .container{
-    height: 100%;
+    @include MQ(M){
+      padding: 25px 40px;
+    }
   }
 
   h2{
-    line-height: 65px;
+    @include MQ(M){
+      line-height: 65px;
+      margin-left: 14%;
+    }
   }
 
   &__message{
-    float: right;
-    max-width: 510px;
+    max-width: 90%;
+    margin: 0 auto;
     margin-top: 100px;
 
+    @include MQ(S){
+      float: right;
+      margin-bottom: 100px;
+      max-width: 470px;
+      width: 60%;
+    }
+
     @include MQ(L){
-      margin-top: 190px;
+      margin-top: 80px;
+      margin-bottom: 190px;
+      margin-right: 7%;
     }
 
     > img{
       display: block;
       margin: 0 auto 30px;
+      max-width: 85%;
     }
   }
 
   .Quote{
-    display: block;
-    font-style: italic;
     color: #737374;
-    text-transform: uppercase;
-    line-height: 1.7;
+    display: block;
+    font-size: 14px;
+    font-style: italic;
     font-weight: 500;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
+    line-height: 1.4;
+    margin: 30px 0;
+    text-align: right;
+    text-transform: uppercase;
+
+    @include MQ(S){
+      width: 70%;
+      font-size: 18px;
+      float: right;
+    }
+
+    @include MQ(L){
+      font-size: 26px;
+      line-height: 46px;
+    }
+
+    q{
+      display: block;
+    }
 
     small{
-      font-weight: 300;
       color: white;
-      display: block;
+      display: inline-block;
+      font-size: 10px;
       font-style: normal;
+      font-weight: 300;
+      letter-spacing: 2.4px;
+      margin-top: 10px;
+      padding: 10px 0;
+      position: relative;
       text-transform: none;
-      font-size: 17px;
+
+      &::before{
+        background-color: $turquoise;
+        content: "";
+        height: 1px;
+        left: -20%;
+        position: absolute;
+        top: 0;
+        width: 80%;
+      }
+
+      @include MQ(S){
+        font-size: 12px;
+      }
+
+      @include MQ(M){
+        font-size: 18px;
+
+        &::before{
+          left: -170px;
+          width: 500px;
+        }
+      }
+    }
+
+    @include MQ(M){
+
+    }
+  }
+}
+
+.Anyone{
+  height: 600px;
+  position: relative;
+
+  @include MQ(S){
+    height: 560px;
+  }
+
+  @include MQ(M){
+    height: 860px;
+  }
+
+  h2{
+    @include center;
+    font-weight: bold;
+    max-width: 1000px;
+    position: absolute;
+    width: 80%;
+    z-index: 1;
+  }
+
+  &__item{
+    background-size: cover;
+    background-position: center 0;
+    height: 100%;
+  }
+}
+
+.Contact{
+  background-color: $seashell;
+  padding: 60px 0;
+  position: relative;
+  text-align: center;
+
+  button{
+    @include transition(all .3s ease);
+
+    background-color: transparent;
+    border: 2px solid $turquoise;
+    color: $turquoise;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 60px;
+    padding: 10px;
+
+    &::after{
+      @include transition(all .4s ease);
+      
+      border: 2px solid $turquoise;
+      content: "";
+      height: calc(100% + 30px);
+      left: -15px;
+      opacity: 0;
+      position: absolute;    
+      top: -15px;
+      width: calc(100% + 30px);
+    }
+
+    &:hover{
+      background-color: $turquoise;
+      color: white;
+
+      &::after{
+        height: 100%;
+        left: 0;
+        opacity: 1;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  p{
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 300;
+  }
+  
+  @include MQ(S){
+    padding: 310px 0 240px;
+
+    button{
+      font-size: 20px;
+      padding: 10px 30px;
+      letter-spacing: 2.2px;
+    }
+
+    p{
+      font-size: 18px;
+    }
+  }
+
+  @include MQ(M){
+    padding: 310px 0 240px;
+
+    button{
+      font-size: 39px;
+      height: 94px;
+      line-height: 94px;
+      padding: 0 30px;      
+      margin-bottom: 120px;
+    }
+
+    p{
+      font-size: 22px;
+      max-width: 515px;
+      margin: 0 auto;
+    }
+  }
+
+  &__overlay{
+    @include transform(scale(.7));
+    @include transition(all .32s ease);
+    background: rgba(#242424, .95);
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    padding: 60px 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+
+    &.is-open{
+      @include transform(scale(1));
+      opacity: 1;
+      visibility: visible;
+      z-index: 4;
+    }
+
+    h5,
+    p{
+      text-align: center;
+    }
+
+    h5{
+      color: $turquoise;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+
+      @include MQ(M){
+        font-size: 24px;
+      }
+    }
+
+    p{
+
+      @include MQ(M){
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__close{
+    @extend .MenuTrigger;
+
+    small{
+      &::before{
+        content: "FECHAR";
+      }
     }
   }
 }

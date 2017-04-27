@@ -36,14 +36,13 @@
 }
 
 .Menu{
+  @include transition(all .6s ease);
   @include transform(translateX(100%));
-  @include transition(all, .6s, ease);
   
   background: rgba(black, .8);
   height: 100%;
   right: 0;
   opacity: 0;
-  overflow: auto;
   position: fixed;
   text-align: center;
   top: 0;  

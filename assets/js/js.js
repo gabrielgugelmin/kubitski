@@ -55,6 +55,25 @@ $(function(){
       });
     } // End if
   });
+
+  // ANYONE
+  $('.js-sliderAnyone').slick({
+    autoplay: true,
+    autoplaySpeed: 1000,
+    draggable: false,
+    fade: true,
+    speed: 10
+  });
+
+
+  // CONTACT
+  $('.js-openContact').on('click', function(){
+    $('.Contact__overlay').addClass('is-open');
+  });
+
+  $('.Contact__close').on('click', function(){
+    $('.Contact__overlay').removeClass('is-open');
+  })
 });
 
 function closeMenu(){

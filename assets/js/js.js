@@ -114,6 +114,9 @@ $(function(){
       console.log('Erro ao tentar enviar mensagem. Tente novamente.');
     }
   });
+
+  // MASK
+  $('.js-phone').mask('(99) 09999-9999', {placeholder: "(99) 99999-9999"});
 });
 
 function closeMenu(){

@@ -666,6 +666,7 @@ video {
 
     @include MQ(M){
       position: absolute;
+      overflow: hidden;
     }
 
     &.is-open{
@@ -685,8 +686,10 @@ video {
       font-size: 16px;
       font-weight: bold;
       text-transform: uppercase;
+      margin-top: 45px;
 
       @include MQ(M){
+        margin-top: 0;
         font-size: 34px;
       }
     }
@@ -893,6 +896,9 @@ video {
       font-size: 20px;
     }
   }
+}
 
-
+.Discover{
+  background: url(../img/doutor2.jpg) no-repeat center top;
+  background-size: cover;
 }

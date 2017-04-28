@@ -9,6 +9,12 @@ html, body {
   font-family: $ubuntu;
 }
 
+body{
+  &.overflowHidden{
+    overflow: hidden;
+  }
+}
+
 .PageWrapper {
   display: flex;  /* use the flex model */
   flex-direction: column;  /* learn more: http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
@@ -650,12 +656,17 @@ video {
     height: 100%;
     left: 0;
     opacity: 0;
+    overflow: auto;
     padding: 60px 0;
     position: fixed;
     right: 0;
     top: 0;
     visibility: hidden;
     width: 100%;
+
+    @include MQ(M){
+      position: absolute;
+    }
 
     &.is-open{
       @include transform(scale(1));
@@ -676,12 +687,13 @@ video {
       text-transform: uppercase;
 
       @include MQ(M){
-        font-size: 24px;
+        font-size: 34px;
       }
     }
 
     p{
-
+      color:white;
+      font-weight: 300;
       @include MQ(M){
         font-size: 20px;
       }
@@ -697,4 +709,190 @@ video {
       }
     }
   }
+}
+
+.Telephone{
+  color: $turquoise;
+  margin: 15px 0;
+
+  @include MQ(M){
+    margin: 40px 0;
+  }
+
+  a{
+    color: $turquoise;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2.2px;
+    text-decoration: none;
+
+    span{
+      font-size: 14px;
+    }
+
+    @include MQ(M){
+      display: inline-block;
+      font-size: 40px;
+
+      span{
+        font-size: 20px;
+      }
+    }
+  }
+
+  small{
+    display: none;
+
+    @include MQ(M){
+      display: inline-block;
+      margin: 0 10px;
+    }
+  }
+}
+
+.Form{
+  max-width: 930px;
+  margin: 0 auto;
+
+  &__label{
+    color: white;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: left;
+  }
+
+  &__control{
+    margin-bottom: 5px;
+    position: relative;
+
+		&.error{
+			input[type="text"],
+			input[type="email"],
+			input[type="tel"],
+			textarea {
+				border-color: #cf3a3a;
+
+				&:focus{
+					border-color: darken(#cf3a3a, 10%);
+				}
+			}
+
+			span{
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+  }
+  
+	&__required{
+		color: #cf3a3a;
+		font-size: 16px;
+		font-weight: 600;
+		opacity: 0;
+		position: absolute;
+		right: 8px;
+		top: 0;
+		visibility: hidden;
+	}
+
+  input,
+  textarea{
+    @include transition(all .3s ease);
+    
+    background-color: #2a2929;
+    border: 1px solid transparent;
+    color: white;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0 5px;
+    width: 100%;
+
+    &:focus{
+      outline: none;
+      border: 1px solid white;
+    }
+  }
+  input{
+    height: 34px;
+  }
+
+  textarea{
+    resize: none;
+  }
+
+  .Button{
+      @include transition(all .3s ease);
+
+      background-color: transparent;
+      border-radius: 0;
+      border: 2px solid $turquoise;
+      color: $turquoise;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 300;
+      height: 42px;
+      line-height: 40px;
+      margin-top: 35px;
+      padding: 0 20px;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &::after{
+        @include transition(all .4s ease);
+        
+        border: 2px solid $turquoise;
+        content: "";
+        height: calc(100% + 30px);
+        left: -15px;
+        opacity: 0;
+        position: absolute;    
+        top: -15px;
+        width: calc(100% + 30px);
+      }
+
+      &:hover{
+        background-color: $turquoise;
+        color: white;
+
+        &::after{
+          height: 100%;
+          left: 0;
+          opacity: 1;
+          top: 0;
+          width: 100%;
+        }
+      }
+    
+  }
+
+
+  @include MQ(M){
+    &__label{
+      float: left;
+      font-size: 20px;
+    }
+
+    &__control{
+      > div{
+        display: block;
+        overflow: hidden;
+        padding: 0 4px 0 10px;
+
+        input{
+          width: 100%
+        }
+      }
+    }
+
+    input,
+    textarea{
+      font-size: 20px;
+    }
+  }
+
+
 }

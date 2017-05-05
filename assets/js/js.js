@@ -55,6 +55,68 @@ $(function(){
       });
     } // End if
   });
+
+  // ANYONE
+  $('.js-sliderAnyone').slick({
+    autoplay: true,
+    autoplaySpeed: 1000,
+    dots: false,
+    draggable: false,
+    fade: true,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    speed: 10
+  });
+
+
+  // CONTACT
+  $('.js-openContact').on('click', function(){
+    $('.Contact__overlay').addClass('is-open');
+    $('body').addClass('overflowHidden');
+  });
+
+  $('.Contact__close').on('click', function(){
+    $('.Contact__overlay').removeClass('is-open');
+    $('body').removeClass('overflowHidden');
+  });
+
+
+  // FORM
+  $('.js-submitForm').on('click', function (e) {
+
+    e.preventDefault();
+    var qtdErro = 0;
+
+    $(this).parents('.Form').find('[data-validate=true]').each(function () {
+      var value = $.trim($(this).find('input, textarea').val());
+      if (!value.length > 0) {
+        $(this).addClass('error');
+        qtdErro++;
+      }
+    });
+
+    if (qtdErro == 0) {
+      return $.ajax({
+        type: "POST",
+        url: "/ajax/contato.php",
+        data: $(this).serialize(),
+        success: function (data) {
+          if (data === "success") {
+            console.log('Mensagem enviada com sucesso.');
+            // Limpa o form
+            $('.Form').trigger("reset");
+          } else {
+            console.log('Erro ao tentar enviar mensagem: ' + data);
+          }
+        }
+      });
+    } else {
+      console.log('Erro ao tentar enviar mensagem. Tente novamente.');
+    }
+  });
+
+  // MASK
+  $('.js-phone').mask('(99) 09999-9999', {placeholder: "(99) 99999-9999"});
 });
 
 function closeMenu(){

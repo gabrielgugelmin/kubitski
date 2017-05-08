@@ -5,6 +5,10 @@
   width: 100%;
   z-index: 2;
 
+  @include MQ(M){
+    z-index: 4;
+  }
+
   &.is-scrolling{
     .Header__logo{
       @include transform(translateY(0));
@@ -48,7 +52,7 @@
   top: 0;  
   visibility: hidden;
   width: calc(100% - 70px);
-  z-index: 1;
+  -z-index: 1;
 
   @include MQ(S){
     max-width: 700px;
@@ -190,8 +194,33 @@
     }
 	}
 
-	&.is-open{
+  &.is-blue{
+    //@extend .MenuTrigger;
+
+    border: 1px solid rgba(#0c2c4e, .3);
+
     small{
+      border: 1px solid rgba(#0c2c4e, .3);
+      color: #0c2c4e;
+    }
+
+    span{
+      background-color: #0c2c4e;
+
+      &::before,
+      &::after{
+        background-color: #0c2c4e;
+      }
+    }
+  }
+
+	&.is-open{
+    border: 1px solid rgba($turquoise, .3);
+    
+    small{
+      color: $turquoise;
+      border: 1px solid rgba($turquoise, .3);
+
       &::before{
         content: "FECHAR";
       }

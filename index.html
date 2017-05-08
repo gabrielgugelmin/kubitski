@@ -5,6 +5,9 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+
 	<!-- CSS -->
 	<link rel="stylesheet" href="assets/css/style.min.css">
 	
@@ -109,15 +112,15 @@
 
 				<nav class="Menu">
 					<ul class="Menu__nav">
-						<li><a href="#/">O APARELHO QUE NINGUÉM VÊ</a></li>
-						<li><a href="#/">O PODER DO INVISÍVEL</a></li>
-						<li><a href="#/">SIMPLES ASSIM</a></li>
-						<li><a href="#/">VANTAGENS</a></li>
-            <li><a href="#/">INVISALIGN DOCTOR</a></li>
-            <li><a href="#/">É PARA VOCÊ</a></li>
-            <li><a href="#/">QUERO UM SORRISO INCRÍVEL</a></li>
-            <li><a href="#/">OUTROS TRATAMENTOS</a></li>
-            <li><a href="#/">CONTATO</a></li>
+						<li><a href="#Banner" class="js-scroll">O APARELHO QUE NINGUÉM VÊ</a></li>
+						<li><a href="#SimplesAssim" class="js-scroll">O PODER DO INVISÍVEL</a></li>
+						<li><a href="#Simples" class="js-scroll">SIMPLES ASSIM</a></li>
+						<li><a href="#Vantagens" class="js-scroll">VANTAGENS</a></li>
+            <li><a href="#Doutor" class="js-scroll">INVISALIGN DOCTOR</a></li>
+            <li><a href="#ParaVoce" class="js-scroll">É PARA VOCÊ</a></li>
+            <li><a href="#Quero" class="js-scroll">QUERO UM SORRISO INCRÍVEL</a></li>
+            <li><a href="#Alternativas" class="js-scroll">OUTROS TRATAMENTOS</a></li>
+            <li><a href="#Contato" class="js-scroll">CONTATO</a></li>
 					</ul>
 				</nav> <!-- Menu -->
 
@@ -125,7 +128,7 @@
 		</header> <!-- Header -->
 
 		<div class="PageContent">
-      <section class="Banner js-fullHeight">
+      <section class="Banner js-fullHeight" id="Banner">
          <div class="container">
            <img src="assets/img/logo-invisalign.svg" alt="invisalign" class="Banner__logo">
 
@@ -133,10 +136,10 @@
          </div> <!--container -->
       </section> <!-- Banner -->
 
-      <section class="Believe">
-        <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
-          <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
-          <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
+      <section class="Believe" id="SimplesAssim">
+        <video poster="assets/img/video.jpg" id="bgvid" playsinline autoplay muted loop>
+          <source src="assets/video/invisalign.webm" type="video/webm">
+          <source src="assets/video/invisalign.mp4" type="video/mp4">
         </video>
 
         <div class="container">
@@ -150,7 +153,7 @@
         </div> <!-- container -->
       </section> <!-- Believe -->
 
-      <section class="Simple">
+      <section class="Simple" id="Simples">
         <div class="container">
           <h2><span class="line--large">SIMPLES</span><br>ASSIM</h2>
 
@@ -160,14 +163,14 @@
         </div> <!-- container -->
       </section> <!-- Simple -->
 
-      <section class="Video">
-        <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
-          <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
-          <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
+      <section class="Video" id="Video">
+        <video poster="assets/img/video1.jpg" id="bgvid" playsinline autoplay muted loop>
+          <source src="assets/video/invisalign2.webm" type="video/webm">
+          <source src="assets/video/invisalign2.mp4" type="video/mp4">
         </video>
       </section> <!-- Video -->
 
-      <section class="About">
+      <section class="About" id="Vantagens">
         <div class="About__img"></div>
         <div class="container">
           <div class="Info--green">            
@@ -204,7 +207,7 @@
         </div> <!-- container -->
       </section> <!-- About -->
 
-      <section class="Doctor">
+      <section class="Doctor" id="Doutor">
 
         <div class="container">
           <h2><span class="line"><b>Um grande</b></span><br>aparelho<br>pede um grande<br><b>especialista</b></h2>
@@ -223,7 +226,7 @@
         </div> <!-- container -->
       </section> <!-- Doctor -->
 
-      <section class="Anyone">
+      <section class="Anyone" id="ParaVoce">
         <h2><span class="line">invisalign</span><br>pode ser pra qualquer um,<br> inclusive pra você.</h2>
 
         <div class="Anyone__banner js-sliderAnyone">
@@ -239,7 +242,7 @@
         </div>
       </section> <!-- Anyone-->
 
-      <section class="Contact">
+      <section class="Contact" id="Quero">
         <button type="button" class="js-openContact">SIM, QUERO UM SORRISO INCRÍVEL</button>
 
         <p>Venha descobrir o que o tratamento ortodôntico mais avançado do mundo pode fazer por você.</p>
@@ -315,64 +318,90 @@
         </div> <!-- Contact__overlay -->
       </section> <!-- Contact -->
 
-      <section class="Discover">
-        <img src="assets/img/logo.svg" alt="Kubitski">
-        <h4>Descubra outras alternativas para deixar o seu sorriso incrível:</h4>
+      <section class="Discover" id="Alternativas">
+        <div class="container">
+          <img src="assets/img/logo.svg" alt="Kubitski" class="Discover__logo">
+          <h4>Descubra outras alternativas<br class="break"> para deixar o seu sorriso incrível:</h4>
 
-        <div class="Timeline">
-          <p>Tratamento ortodôntico</p>
-          <p>Facetas cerâmicas</p>
-          <p>Tratamentos de prevenção,<br>como limpeza e radiografias</p>
-          <p>Coroas, Inlays e Onlays</p>
-          <p>Restaurações</p>
-          <p>"Lentes de contato" dentais</p>
-          <p>Implantes</p>
-          <p>Dentes do siso</p>
-        </div> <!-- Timeline -->
+          <div class="Timeline">
+            <div class="Timeline__column">
+              <div>
+                <p>Tratamento ortodôntico</p>
+              </div>
+              <div>
+                <p>Facetas cerâmicas</p>
+              </div>
+              <div>
+                <p>Tratamentos de prevenção,<br>como limpeza e radiografias</p>
+              </div>
+              <div>
+                <p>Coroas, Inlays e Onlays</p>
+              </div>
+            </div> <!-- Timeline__column -->
+            
+            <div class="Timeline__column">
+              <div>
+                <p>Restaurações</p>
+              </div>
+              <div>
+                <p>"Lentes de contato" dentais</p>
+              </div>
+              <div>
+                <p>Implantes</p>
+              </div>
+              <div>
+                <p>Dentes do siso</p>
+              </div>
+            </div> <!-- Timeline__column -->
+          </div> <!-- Timeline -->
+        </div> <!-- container -->
+        
       </section> <!-- Discover -->
 
-      <section class="Map">
+      <section class="Map" id="Contato">
         <div id="map"></div>
       </section> <!-- Map -->
 		</div> <!-- PageContent -->
 
 		<footer class="SiteFooter">
 			<div class="container">
-				<div class="Adress">
-          <div class="Adress__column">
+				<div class="Address">
+          <div class="Address__column">
             <h6>ENDEREÇO</h6>
             <p>Rua Padre Anchieta, 1104 - Bigorrilho</p>
             <p>Rua XV de Novembro, 2085 - Centro </p>
           </div> <!-- Adress__column -->
 
-          <div class="Adress__column">
+          <div class="Address__column">
             <p>CURITIBA</p>
             <p>CAMPO LARGO</p>
           </div> <!-- Adress__column -->
 
-          <div class="Adress__column">
+          <div class="Address__column">
             <h6>CONTATO</h6>
-            <p>(41) 3336.5455</p>
-            <p>(41) 3292.2781</p>
+            <p>(41) <span>3336.5455</span></p>
+            <p>(41) <span>3292.2781</span></p>
 
             <a href="assets/img/icons/"></a><a href="assets/img/icons/"></a>
           </div> <!-- Adress__column -->
-
-          <p class="Whatsapp">Se preferir, mande um WhatsApp pra gente (41) <span>99191-5455</span></p>
-
-          <div class="Powered">
-            <small>Powered by Angry Little Dog</small>
-          </div> <!-- Powered -->
         </div> <!-- Adress -->
+
+        <a href="https://api.whatsapp.com/send?phone=5541991915455" class="Whatsapp">Se preferir, mande um <span>WhatsApp</span> pra gente <i class="nowrap">(41) <span>99191-5455</span></i></p></a>
+
+        <div class="Powered">
+          <small>Powered by <a href="#/">Angry Little Dog</a></small>
+        </div> <!-- Powered -->
 			</div> <!-- container -->
 
       <div class="Versicle">
-        <p>Buscai primeiro o reino de Deus, e a sua justiça, e todas estas coisas vos serão acrescentadas. – Mateus 6:33</p>
+        <div class="container">
+          <p>Buscai primeiro o reino de Deus, e a sua justiça, e todas estas coisas vos serão acrescentadas. – Mateus 6:33</p>
+        </div>
       </div>
 		</footer> <!-- SiteFooter -->
 	</div> <!-- PageWrapper -->
 	
-	<!--<script src="https://maps.googleapis.com/maps/api/js?key="></script>-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVoNLLzJQMWfMJLxo_IdwU56aA8mQddf0"></script>
 	
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/js.min.js"></script>

@@ -30,28 +30,34 @@ $(function(){
     } else{
     	$('.Header').removeClass('is-scrolling');
     }
+
+
+    // muda cor do menu
+    var scrollTop     = $(window).scrollTop(),
+    elementOffset = $('.About').offset().top,
+    elementHeight = $('.About').outerHeight() - 1;
+
+    if( scrollTop >= elementOffset && scrollTop <= (elementOffset + elementHeight) ){
+      $('.MenuTrigger').addClass('is-blue');
+    } else{
+      $('.MenuTrigger').removeClass('is-blue');
+    }
   });
 
 
   // SMOOTH SCROLL
   $('.js-scroll').on('click', function(event) {
+    $('.Menu').removeClass('is-open');
+    $('.MenuTrigger').removeClass('is-open');
+    $('body').removeClass('overflowHidden');
 
-    // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== '') {
-      // Prevent default anchor click behavior
       event.preventDefault();
-
-      // Store hash
       var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
-        scrollTop: $(hash).offset().top - 100
+        scrollTop: $(hash).offset().top
       }, 800, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
       });
     } // End if
   });
@@ -59,7 +65,7 @@ $(function(){
   // ANYONE
   $('.js-sliderAnyone').slick({
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 500,
     dots: false,
     draggable: false,
     fade: true,
@@ -117,6 +123,208 @@ $(function(){
 
   // MASK
   $('.js-phone').mask('(99) 09999-9999', {placeholder: "(99) 99999-9999"});
+
+  // MAPS
+
+  function initialize() {
+
+    var chicago = new google.maps.LatLng(-25.429198, -49.290121);
+    var myOptions = {
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: chicago,
+        mapTypeControl: false,
+        scrollwheel: false,
+        styles: [
+                {
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#f5f5f5"
+                    }
+                  ]
+                },
+                {
+                  "elementType": "labels.icon",
+                  "stylers": [
+                    {
+                      "visibility": "off"
+                    }
+                  ]
+                },
+                {
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#616161"
+                    }
+                  ]
+                },
+                {
+                  "elementType": "labels.text.stroke",
+                  "stylers": [
+                    {
+                      "color": "#f5f5f5"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "administrative.land_parcel",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#bdbdbd"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#eeeeee"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#757575"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi.park",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#e5e5e5"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "poi.park",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#9e9e9e"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#ffffff"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.arterial",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#757575"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#dadada"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.highway",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#616161"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "road.local",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#9e9e9e"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "transit.line",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#e5e5e5"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "transit.station",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#eeeeee"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "water",
+                  "elementType": "geometry",
+                  "stylers": [
+                    {
+                      "color": "#c9c9c9"
+                    }
+                  ]
+                },
+                {
+                  "featureType": "water",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                    {
+                      "color": "#9e9e9e"
+                    }
+                  ]
+                }
+              ]
+    };
+    map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+    markerMuseu = new google.maps.Marker({
+      position: new google.maps.LatLng(-25.429198, -49.290121),
+      map: map,
+      title: 'Kubitski Odontologia Estética',
+      icon: 'assets/img/icons/marker.png'
+    });
+
+    var contentString = '<div class="InfoWindow">'+
+      '<h1 class="InfoWindow__title">Kubitski Odontologia Estética</h1>'+
+      '<div class="InfoWindow__content">'+
+      '<p>R. Padre Anchieta, 1104 - Mercês, Curitiba - PR, 80410-020</p>'+
+      '<p>(41) 3336.5455</p>'+
+      '</div>'+
+      '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+    markerMuseu.addListener('click', function() {
+      infowindow.open(map, markerMuseu);
+    });
+  }
+
+  if( $('#map').length ){
+    initialize();
+  }
 });
 
 function closeMenu(){
